@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  postgresql:
+    container_name: sql-sandbox
+    image: postgres:13.2
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./dump:/dump
+    env_file: .env.db
+    ports:
+      - 5432:5432
+ 
+volumes:
+  postgres_data:
+     name: sql-sandbox
